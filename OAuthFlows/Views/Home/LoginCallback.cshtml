@@ -1,0 +1,25 @@
+﻿@model (string Code, string State)
+@{
+    ViewData["Title"] = "Login Callback";
+}
+<h3>Paso 2: Recuperar el codigo de la URL</h3>
+<div class="card">
+    <div class="card-header">
+        Codigo de autorizacion otorgado
+    </div>
+    <div class="card-body">
+        <p>Este es el codigo de autorizacion</p>
+        <p class="response-content">@Model.Code</p>
+        <p>
+            Y este es el valor de State que es devuelto por el servidor de 
+            autorizacion
+        </p>
+        <p class="response-content">@Model.State</p>
+        <p>Ahora podemos intercambiar por un Access Token</p>
+        <p class="text-center"> 
+            <a class="btn btn-primary" href="/exchange/the/authorization/code/for/an/Access/token?code=@Model.Code">
+                  Intercambiar el codigo por un Access Token
+            </a>
+            </p>
+    </div>
+</div>
